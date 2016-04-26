@@ -1,0 +1,110 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('model/index')}">{:L('ADMIN_MODEL_DEF')}</a></li>
+			<li class="active"><a href="{:U('model/add')}">{:L('ADMIN_MODEL_ADD')}</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('model/add_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">站点id:</label>
+					<div class="controls">
+						<input type="text" name="siteid">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">模型名称:</label>
+					<div class="controls">
+						<input type="text" name="name">
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">表名:</label>
+					<div class="controls">
+						<input type="text" name="tablename" id="tablename">
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">描述:</label>
+					<div class="controls">
+						<input type="text" name="description" id="description">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">配置信息:</label>
+					<div class="controls">
+						<input type="text" name="setting" id="setting">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">是否开启全站搜索:</label>
+					<div class="controls">
+						<label class="radio-inline">
+                          <input type="radio" name="enablesearch" id="enablesearch1" value="1" checked>是
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" name="enablesearch" id="enablesearch2" value="0">否
+                        </label>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">是否禁用:</label>
+					<div class="controls">
+                        <label class="radio-inline">
+                          <input type="radio" name="disabled" id="disabled1" value="1">是
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" name="disabled" id="disabled2" value="0" checked>否
+                        </label>
+                    </div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">风格:</label>
+					<div class="controls">
+                        <input type="text" name="default_style" id="default_style">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">栏目模板:</label>
+					<div class="controls">
+						<input type="text" name="category_template" id="category_template">
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">列表页模板:</label>
+					<div class="controls">
+						<input type="text" name="list_template" id="list_template">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">内容页模板:</label>
+					<div class="controls">
+						<input type="text" name="show_template" id="show_template">
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">js模板:</label>
+					<div class="controls">
+						<input type="text" name="js_template" id="js_template">
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">模块标识:</label>
+					<div class="controls">
+						<input type="text" name="type" id="type">
+					</div>
+				</div>
+            </fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">{:L('ADD')}</button>
+				<a class="btn" href="{:U('model/index')}">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

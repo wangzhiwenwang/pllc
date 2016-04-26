@@ -1,0 +1,154 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('model/index')}">{:L('ADMIN_MODEL_DEF')}</a></li>
+			<li><a href="{:U('model/add')}">{:L('ADMIN_MODEL_ADD')}</a></li>
+            <li class="active"><a href="{:U('menu/add')}">{:L('ADMIN_MODEL_EDIT')}</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('Model/edit_post')}">
+			<fieldset>
+                <div class="control-group">
+					<label class="control-label">模型id:</label>
+					<div class="controls">
+                        <span>{$data.modelid}</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">站点id:</label>
+					<div class="controls">
+						<input type="text" name="siteid" value="{$data.siteid}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">名称:</label>
+					<div class="controls">
+						<input type="text" name="name" value="{$data.name}">
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">表名:</label>
+					<div class="controls">
+						<input type="text" name="tablename" id="tablename" value="{$data.tablename}">
+						<span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">描述:</label>
+					<div class="controls">
+						<input type="text" name="description" id="description" value="{$data.description}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">配置信息:</label>
+					<div class="controls">
+						<input type="text" name="setting" id="setting" value="{$data.setting}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">是否开启全站搜索:</label>
+					<div class="controls">
+						<div class="radio">
+                            <label>
+                                <input type="radio" name="enablesearch" id="enablesearch1" value="1" <if condition="$data.enablesearch eq 1">checked</if>>
+                              是
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                              <input type="radio" name="enablesearch" id="enablesearch2" value="0" <if condition="$data.enablesearch eq 0">checked</if>>
+                              否
+                            </label>
+                        </div>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">是否禁用:</label>
+					<div class="controls">
+						<div class="radio">
+                            <label>
+                              <input type="radio" name="disabled" id="disabled1" value="1" <if condition="$data.disabled eq 1">checked</if>>
+                              是
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                              <input type="radio" name="disabled" id="disabled2" value="0" <if condition="$data.disabled eq 0">checked</if>>
+                              否
+                            </label>
+                        </div>
+                    </div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">风格:</label>
+					<div class="controls">
+                        <input type="text" name="default_style" id="default_style" value="{$data.default_style}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">栏目模板:</label>
+					<div class="controls">
+						<input type="text" name="category_template" id="category_template" value="{$data.category_template}">
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">列表页模板:</label>
+					<div class="controls">
+						<input type="text" name="list_template" id="list_template" value="{$data.list_template}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">内容页模板:</label>
+					<div class="controls">
+						<input type="text" name="show_template" id="show_template" value="{$data.show_template}">
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">js模板:</label>
+					<div class="controls">
+						<input type="text" name="js_template" id="js_template" value="{$data.js_template}">
+					</div>
+				</div>
+                <div class="control-group">
+					<label class="control-label">模块标识:</label>
+					<div class="controls">
+						<input type="text" name="type" id="type" value="{$data.type}">
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="modelid" value="{$data.modelid}" />
+                <input type="hidden" name="oldtablename" value="{$data.tablename}" />
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
+				<button class="btn js-ajax-close-btn" type="submit">{:L('CLOSE')}</button>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		$(function() {
+			$(".js-ajax-close-btn").on('click', function(e) {
+				e.preventDefault();
+				Wind.use("artDialog", function() {
+					art.dialog({
+						id : "question",
+						icon : "question",
+						fixed : true,
+						lock : true,
+						background : "#CCCCCC",
+						opacity : 0,
+						content : "您确定需要关闭当前页面嘛？",
+						ok : function() {
+							setCookie('refersh_time_admin_model_index', 1);
+							window.close();
+							return true;
+						}
+					});
+				});
+			});
+		});
+	</script>
+</body>
+</html>

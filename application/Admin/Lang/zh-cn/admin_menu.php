@@ -17,6 +17,7 @@ return array (
   'ADMIN_MAILER_INDEX' => 'SMTP配置',
   'ADMIN_MAILER_INDEX_POST' => '提交配置',
   'ADMIN_MENU_ADD' => '添加菜单',
+  'ADD_SUB_MENU' => '添加子菜单',
   'ADMIN_MENU_ADD_POST' => '提交添加',
   'ADMIN_MENU_EDIT_POST' => '提交编辑',
   'ADMIN_MENU_INDEX' => '后台菜单',
@@ -115,5 +116,14 @@ return array (
   'ADMIN_USER_ADD' => '管理员添加',
   'ADMIN_USER_DELETE' => '删除管理员',
   'ADMIN_USER_EDIT' => '管理员编辑',
-  'ADMIN_MENU_SPMY_IMPORT_MENU' =>"导入菜单"
+  'ADMIN_MENU_SPMY_IMPORT_MENU' =>"导入菜单",
+   //模型管理多语言信息
+  'ADMIN_MODEL_DEF' => "模型定义",  
+  'ADMIN_MODEL_ADD' => "添加模型",  
+  'ADMIN_MODEL_ID' => "模型ID",  
+  'ADMIN_MODEL_NAME' => "模型名称",  
+  'ADMIN_MODEL_TABLE' => "表名",  
+  'ADMIN_MODEL_DESC' => "描述", 
+  'ADMIN_MODEL_FIELD_DEF'=> "字段定义",
+  'ADMIN_MODEL_EDIT' => "模型编辑",
 );

@@ -24,24 +24,24 @@
 						<th width="50">{:L('SORT')}</th>
 						<th width="50">{:L('ADMIN_MODEL_ID')}</th>
 						<th>{:L('ADMIN_MODEL_NAME')}</th>
-						<th width="200">{:L('ADMIN_MODEL_TABLE')}</th>
-						<th width="200">{:L('ADMIN_MODEL_DESC')}</th>
-						<th width="180">{:L('ACTIONS')}</th>
+						<th width="100">{:L('ADMIN_MODEL_TABLE')}</th>
+						<th>{:L('ADMIN_MODEL_DESC')}</th>
+						<th width="10">{:L('ACTIONS')}</th>
 					</tr>
 				</thead>
 				<tbody>
                     <foreach name="list" item="vo">
-                        <tr id='node-{$vo.modelid}' >
+                        <tr id='node-{$vo.id}' >
                             <td style='padding-left:10px;'>
-                                <input name='listorders[{$vo.modelid}]' type='text' size='3' value='{$vo.listorder}' class='input input-order'></td>
-                            <td>{$vo.modelid}</td>
+                                <input name='listorders[{$vo.id}]' type='text' size='3' value='{$vo.listorder}' class='input input-order'></td>
+                            <td>{$vo.id}</td>
                             <td>{$vo.name}</td>
                             <td>{$vo.tablename}</td>
                             <td>{$vo.description}</td>
                             <td>
-                                <a href="{:U('Model/field_index', array('modelid' => $vo['modelid']))}">{:L('ADMIN_MODEL_FIELD_DEF')}</a> | 
-                                <a href="{:U('Model/edit', array('modelid' => $vo['modelid']))}">{:L('EDIT')}</a> | 
-                                <a class="js-ajax-delete" href="{:U('Model/delete', array('modelid' => $vo['modelid']))}">{:L('DELETE')}</a>
+                                <a href="{:U('ModelField/index', array('modelid' => $vo['id']))}">{:L('ADMIN_MODELFIELD_MAN')}</a> | 
+                                <a href="{:U('Model/edit', array('id' => $vo['id']))}">{:L('EDIT')}</a> | 
+                                <a class="js-ajax-delete" href="{:U('Model/delete', array('id' => $vo['id']))}">{:L('DELETE')}</a>
                             </td>
                         </tr>
 				    </foreach>
@@ -64,22 +64,22 @@
 	</div>
 	<script src="__PUBLIC__/js/common.js"></script>
 	<script>
-		$(document).ready(function() {
-			Wind.css('treeTable');
-			Wind.use('treeTable', function() {
-				$("#model-table").treeTable({
-					indent : 20
-				});
-			});
-		});
+//		$(document).ready(function() {
+//			Wind.css('treeTable');
+//			Wind.use('treeTable', function() {
+//				$("#model-table").treeTable({
+//					indent : 20
+//				});
+//			});
+//		});
 
-		setInterval(function() {
-			var refersh_time = getCookie('refersh_time_admin_model_index');
-			if (refersh_time == 1) {
-				reloadPage(window);
-			}
-		}, 1000);
-		setCookie('refersh_time_admin_menu_index', 0);
+//		setInterval(function() {
+//			var refersh_time = getCookie('refersh_time_admin_model_index');
+//			if (refersh_time == 1) {
+//				reloadPage(window);
+//			}
+//		}, 1000);
+//		setCookie('refersh_time_admin_model_index', 0);
         //添加模型
         $("#admin_model_add").click(function(){
             $("#model_list").attr("action","{:U('Model/add')}");

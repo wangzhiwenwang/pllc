@@ -124,6 +124,9 @@ return array (
   'ADMIN_MODEL_NAME' => "模型名称",  
   'ADMIN_MODEL_TABLE' => "表名",  
   'ADMIN_MODEL_DESC' => "描述", 
-  'ADMIN_MODEL_FIELD_DEF'=> "字段定义",
   'ADMIN_MODEL_EDIT' => "模型编辑",
+  'ADMIN_MODELFIELD_MAN' => "字段管理",
+  'ADMIN_MODELFIELD_ADD' => "添加字段",
+  'ADMIN_MODELFIELD_EDIT' => "添加编辑",
+
 );

@@ -47,7 +47,7 @@ class CommonModel extends Model {
         $table = C("DB_PREFIX") . $table;
         $data = $this->query("SHOW COLUMNS FROM $table");
         foreach ($data as $v) {
-            $fields[$v['Field']] = $v['Type'];
+            $fields[$v['field']] = $v['type'];
         }
         return $fields;
     }

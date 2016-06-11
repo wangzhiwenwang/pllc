@@ -3,45 +3,47 @@
 <body>
 	<div class="wrap">
 		<ul class="nav nav-tabs">
-			<li><a href="{:U('model/index')}">{:L('ADMIN_MODEL_DEF')}</a></li>
-			<li><a href="{:U('model/add')}">{:L('ADMIN_MODEL_ADD')}</a></li>
-            <li class="active"><a href="{:U('menu/add')}">{:L('ADMIN_MODEL_EDIT')}</a></li>
+			<li><a href="{:U('Model/index')}">{:L('ADMIN_MODEL_DEF')}</a></li>
+			<li><a href="{:U('Model/add')}">{:L('ADMIN_MODEL_ADD')}</a></li>
+            <li class="active"><a href="{:U('model/edit')}">{:L('ADMIN_MODEL_EDIT')}</a></li>
 		</ul>
 		<form method="post" class="form-horizontal js-ajax-form" action="{:U('Model/edit_post')}">
 			<fieldset>
                 <div class="control-group">
 					<label class="control-label">模型id:</label>
 					<div class="controls">
-                        <span>{$data.modelid}</span>
+                        <span>{$data.id}</span>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">站点id:</label>
 					<div class="controls">
-						<input type="text" name="siteid" value="{$data.siteid}">
+						<!--<input type="text" name="model[siteid]" value="{$data.siteid}">-->
+						<span>{$data.siteid}</span>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label">名称:</label>
+					<label class="control-label">模型名称:</label>
 					<div class="controls">
-						<input type="text" name="name" value="{$data.name}">
+						<input type="text" name="model[name]" value="{$data.name}">
 						<span class="form-required">*</span>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">表名:</label>
 					<div class="controls">
-						<input type="text" name="tablename" id="tablename" value="{$data.tablename}">
-						<span class="form-required">*</span>
+						<!--<input type="text" name="model[tablename]" id="tablename" value="{$data.tablename}">
+						<span class="form-required">*</span>-->
+						<span>{$data.tablename}</span>						
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">描述:</label>
 					<div class="controls">
-						<input type="text" name="description" id="description" value="{$data.description}">
+						<input type="text" name="model[description]" id="description" value="{$data.description}">
 					</div>
 				</div>
-				<div class="control-group">
+				<!--<div class="control-group">
 					<label class="control-label">配置信息:</label>
 					<div class="controls">
 						<input type="text" name="setting" id="setting" value="{$data.setting}">
@@ -117,12 +119,12 @@
 						<input type="text" name="type" id="type" value="{$data.type}">
 					</div>
 				</div>
-			</fieldset>
+			</fieldset>-->
 			<div class="form-actions">
-				<input type="hidden" name="modelid" value="{$data.modelid}" />
+				<input type="hidden" name="modelid" value="{$data.id}" />
                 <input type="hidden" name="oldtablename" value="{$data.tablename}" />
                 <button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
-				<button class="btn js-ajax-close-btn" type="submit">{:L('CLOSE')}</button>
+				<a class="btn" href="{:U('Model/index')}">{:L('CLOSE')}</a>
 			</div>
 		</form>
 	</div>

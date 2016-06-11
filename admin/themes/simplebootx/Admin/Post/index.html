@@ -1,0 +1,58 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+            <li class="active"><a class="on" href="<?php echo U('Post/index') . "?moduleid=" . $module['id']; ?>">内容管理</a></li>
+			<li><a class="add fb" href="<?php echo U('Post/add') . "?moduleid=" . $module['id']; ?>">添加内容</a>    </li>
+		</ul>
+		<form class="form-horizontal js-ajax-form" name="myform" action="<?php echo U('Post/listorder') . "?moduleid=" . $module['id']; ?>" method="post">
+			<input type="hidden" name="moduleid" value="<?php echo $module['id']; ?>">
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" name="submit">排序</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" name="deletesubmit" onclick="document.myform.action='__CONTROLLER__/delete?moduleid=<?php echo $module['id']; ?>';return confirm('确认要删除 『 选中 』 吗？')">删除</button>
+			</div>
+			<div>
+				<table class="table table-hover table-bordered table-list">
+					<thead>
+						<tr>
+							<th width="16"><input type="checkbox" value="" id="check_box" onclick="selectall('ids[]');"></th>
+							<th width="37">排序</th>
+							<th width="40">ID</th>
+							<?php foreach ($list_fields as $key => $field) { ?>
+							<th><?php echo $field['name']; ?></th>
+							<?php } ?>
+							<th width="118">更新时间</th>
+							<th width="102">管理操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($contents as $key => $content) { ?>
+						<tr>
+							<td align="center"><input class="inputcheckbox " name="ids[]" value="<?php echo $content['id']; ?>" type="checkbox"></td>
+							<td align="center"><input name="listorders[<?php echo $content['id']; ?>]" type="text" size="3" value="<?php echo $content['listorder']; ?>" class="input-text-c input-text"></td>
+							<td align="center"><?php echo $content['id']; ?></td>
+							<?php foreach ($list_fields as $key => $field) { ?>
+							<td><?php echo $content[$field['field']]; ?></td>
+							<?php } ?>
+							<td align="center"><?php echo $content['updatetime']; ?></td>
+							<td align="center">
+								<a href="__CONTROLLER__/edit?moduleid=<?php echo $module['id']; ?>&id=<?php echo $content['id']; ?>">修改</a> | <a href="__CONTROLLER__/delete?moduleid=<?php echo $module['id']; ?>&id=<?php echo $content['id']; ?>" onClick="return confirm('确认删除『 <?php echo addslashes($content['title']); ?> 』 吗？')">删除</a>
+							</td>
+						</tr>
+						<?php } ?>
+					</tbody>
+				</table>
+				<div class="table-actions">
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit" name="submit">排序</button>
+					<button class="btn btn-primary btn-small js-ajax-submit" type="submit" name="deletesubmit" onclick="document.myform.action='__CONTROLLER__/delete?moduleid=<?php echo $module['id']; ?>';return confirm('确认要删除 『 选中 』 吗？')">删除</button>
+				</div>
+				<div id="pages">
+					<?php echo $pages; ?>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
